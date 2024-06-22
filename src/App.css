@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+
+.CardView{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 25vh;
+  background-color: #f5f5f5;
+}
+
+.ChartView{
+  
+}
