@@ -2,9 +2,13 @@
 import React, { useState } from 'react';
 import './Card.css';
 
-function Card({ initial, interest, frequency }) {
+function Card({ initial, interest, frequency, delcard}) {
+  const handleClick = () => {
+    delcard();
+}
   return (
     <div className="card">
+      <button onClick={handleClick} className="close-button">x</button>
       <h3>{initial}</h3>
       <p>{interest}</p>
       <p>{frequency}</p>
