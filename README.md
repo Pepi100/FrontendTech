@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Interest Calculator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://www.chartjs.org/
 
 ## Available Scripts
 
