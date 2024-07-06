@@ -4,7 +4,7 @@ import 'chart.js/auto';
 
 const LineChart = ({ cardData, timing }) => {
 
-    timing = ['Daily', 600]
+    timing = ['Daily', 20000]
   const data = {
     labels: [],
     datasets: [
@@ -14,6 +14,40 @@ const LineChart = ({ cardData, timing }) => {
 
   for(let i = 0; i <= timing[1]; i++){
     data.labels.push('Day '+ i)
+  }
+
+  let minFreq = 365;
+  for (let i = 0; i < cardData.length; i++) {
+    let daysFreq;
+    switch(cardData[i].frequency){
+        case 'daily':
+            daysFreq = 365;
+            break;
+        case 'weekly':
+            daysFreq = 52;
+            break;
+        case 'biweekly':
+            daysFreq = 26;
+            break;
+        case 'monthly':
+            daysFreq = 12;
+            break;
+        case 'quarterly':
+            daysFreq = 4;
+            break;
+        case 'triannually':
+            daysFreq = 3;
+            break;
+        case 'semiannually':
+            daysFreq = 2;
+            break;
+        case 'annually':
+            daysFreq = 1;
+            break          
+     }
+
+     minFreq = Math.min(minFreq, daysFreq)
+
   }
 
 
@@ -55,7 +89,7 @@ const LineChart = ({ cardData, timing }) => {
       fill: false
     });
 
-    for(let j = 0; j <= timing[1]; j++){
+    for(let j = 0; j <= timing[1] / minFreq; j++){
         data.datasets[i].data.push(initial * Math.pow( (1 + (interest / 100) /daysFreq ), daysFreq * (j/365) ) )
       }
   }
@@ -78,4 +112,4 @@ const LineChart = ({ cardData, timing }) => {
   );
 };
 
-export default LineChart;
+export default LineChart;  
