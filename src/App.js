@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import { Card, NewCard } from './Card';
+import LineChart from './Chart';
 
 function App() {
   const [cards, setCards] = useState([]);
@@ -13,6 +14,7 @@ function App() {
     const newCard = { initial: values.initialValue, interest: values.interest, frequency: values.frequency};
     setCards([...cards, newCard]);
     }
+
   return (
     <div className="App">
       <div className="CardView">
@@ -26,7 +28,7 @@ function App() {
 
       </div>
       <div className="ChartView">
-
+        <LineChart cardData={cards} timing={1}/>
       </div>
     </div>
   );
