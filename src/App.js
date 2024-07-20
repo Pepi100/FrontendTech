@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Card, NewCard } from './Card';
 import LineChart from './Chart';
 
