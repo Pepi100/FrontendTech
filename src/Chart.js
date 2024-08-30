@@ -2,9 +2,18 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 
-const LineChart = ({ cardData, timing }) => {
+const LineChart = ({ cardData, timing  }) => {
 
-    timing = ['Daily', 20000]
+  const frequency = [
+    "day ",   // 0
+    "week ",  // 1
+    "month ", // 2
+    "year "// 3
+  ];
+
+    
+  // timing = [1, 200]
+  
   const data = {
     labels: [],
     datasets: [
@@ -12,8 +21,10 @@ const LineChart = ({ cardData, timing }) => {
     ],
   };
 
+
+
   for(let i = 0; i <= timing[1]; i++){
-    data.labels.push('Day '+ i)
+    data.labels.push(frequency[timing[0]]+ i)
   }
 
   let minFreq = 365;
@@ -82,7 +93,6 @@ const LineChart = ({ cardData, timing }) => {
             daysFreq = 1;
             break          
      }
-
     data.datasets.push({
       label: 'Interest ' + i,
       data: [],
